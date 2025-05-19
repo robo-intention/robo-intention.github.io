@@ -97,7 +97,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <img src="./static/images/hymotion_logo.png" alt="Logo" class="logo"  style="width: 300px; height: auto;">
+          <img src="./static/images/humanoids.png" alt="Logo" class="logo"  style="width: 300px; height: auto;">
           <h1 class="title is-1 publication-title">Inferring Tendencies of Humanoid Motion Through Physical Intuition and Grounded VLM</h1>
           <!-- <h3 class="title is-4 conference-authors"><a target="_blank" href="https://www.corl.org/">CoRL 2024</a></h3> -->
 
@@ -156,11 +156,11 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="cover" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/hymotion_web.mp4"
+        <source src="./static/videos/intention_web.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">HYPERmotion</span> enables the humanoid robot to <strong>learn</strong>, <strong>plan</strong>, and <strong>select</strong> behaviors to complete autonomous long-horizon tasks.
+        <span class="dnerf">INTENTION</span> enables the humanoid robot to <strong>learn</strong>, <strong>plan</strong>, and <strong>infer</strong> motions to complete autonomous manipulation tasks based on intuitive physics and task experience.
       </h2>
     </div>
   </div>
@@ -273,23 +273,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Enabling humanoid robots to autonomously perform hybrid locomotion and manipulation 
-            in diverse environments can be beneficial for long-horizon tasks such as factory material handling, 
-            household chores, and work assistance. This requires extensive exploitation of intrinsic motion capabilities, 
-            extraction of affordances from rich environmental information, and planning of physical interaction behaviors. 
-            Despite recent progress has demonstrated impressive humanoid whole-body control abilities, 
-            they struggle to achieve versatility and adaptability for new tasks. In this work, 
-            we propose HYPERmotion, a framework that learns, selects and plans behaviors based on tasks 
-            in different scenarios. We combine reinforcement learning with whole-body model predictive control 
-            to generate motion for 37 actuated joints and create a motion library to store the learned skills. 
-            We further apply the online planning and reasoning features of the large language models (LLMs) 
-            to complex loco-manipulation tasks, constructing a hierarchical task graph that comprises a series 
-            of primitive behaviors to bridge lower-level execution with higher-level planning. By leveraging 
-            the interaction of distilled spatial geometry and 2D observation with a visual language model (VLM) 
-            to ground knowledge into a robotic morphology selector to choose appropriate actions in single- or 
-            dual-arm, legged or wheeled locomotion.  Experiments in both simulated and real-world settings show 
-            that learned whole-body skills can efficiently adapt to new tasks, demonstrating high autonomy from 
-            free-text instructions in unstructured scenes.
+            Traditional control and planning for robotic manipulation heavily rely on precise physical models and predefined action sequences. While effective in structured environments, such approaches often fail in real-world scenarios due to modeling inaccuracies and struggle to generalize to novel tasks. In contrast, humans intuitively interact with their surroundings, demonstrating remarkable adaptability, making efficient decisions through implicit physical understanding. In this work, we propose INTENTION, a novel framework enabling robots with learned physical intuition and autonomous manipulation in diverse scenarios, by integrating Vision-Language Models (VLMs) based scene reasoning with interaction-driven memory. We introduce Memory Graph to record scenes from previous task interactions which embodies human-like understanding and decision-making about different tasks in real world. Meanwhile, we design an Intuitive Perceptor that extracts physical relations and affordances from visual scenes. Together, these components empower robots to infer appropriate interaction behaviors in new scenes without relying on repetitive instructions.
           </p>
         </div>
       </div>
@@ -301,7 +285,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/P-Y_fzpjlhY?si=9S3ZT4HDTwwdufXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -313,72 +297,20 @@
   <div class="container is-max-widescreen">
 
     <div class="rows">
-      <h2 class="title is-3">Tasks with human instructions</h2>
-      
-      <!-- <p class="content has-text-justified">
-        Because the language model output stays the same throughout the task, we can cache its output and re-evaluate the generated code using closed-loop visual feedback, which enables fast replanning using MPC. This enables VoxPoser to be robust to online disturbances.
-      </p> -->
-      
-      <div class="columns">
-        <div class="column has-text-centered">
-          <video id="dist1"
+      <h2 class="title is-3">Intuitive Tasks without human instructions</h2>
+       <div class="columns is-centered">
+        <div class="column is-half has-text-centered">
+          <video id="main-task-video"
             controls
             muted
             autoplay
             loop
-            width="99%">
-            <source src="task/task1.mp4" 
+            width="100%">
+            <source src="task/intention_task.mp4" 
             type="video/mp4">
           </video>
           <p style="text-align:center">
-            "Move to the door and open it."
-          </p>
-        </div>
-    
-        <div class="column has-text-centered">
-          <video id="dist2"
-            controls
-            muted
-            autoplay
-            loop
-            width="99%">
-            <source src="task/task2.mp4" 
-            type="video/mp4">
-          </video>
-          <p style="text-align:center">
-            "Open the drawer and pick up the mustard."
-          </p>
-        </div>
-      </div>
-
-      <div class="columns">
-        <div class="column has-text-centered">
-          <video id="dist3"
-            controls
-            muted
-            autoplay
-            loop
-            width="99%">
-            <source src="task/task3.mp4" 
-            type="video/mp4">
-          </video>
-          <p style="text-align:center">
-            "Pick up the cracker and place in the box."
-          </p>
-        </div>
-      
-        <div class="column has-text-centered">
-          <video id="dist4"
-            controls
-            muted
-            autoplay
-            loop
-            width="99%">
-            <source src="task/task4.mp4" 
-            type="video/mp4">
-          </video>
-          <p style="text-align:center">
-            "Pick up the food box and give it to me."
+            "Real-world experiments for different manipulation tasks."
           </p>
         </div>
       </div>
@@ -398,7 +330,7 @@
         </br>
         </br>
           <p class="content has-text-justified">
-            <strong>Overview of HYPERmotion</strong>: We decompose the framework into four sectors: <strong>Motion generation</strong> is assigned for learning and training whole-body motion skills for new tasks and storing them in the motion library. <strong>User input</strong> includes received task instructions and initialization prompt sets. <strong>Task planning</strong> generates a task graph that guides the robot's behavior through reasoning and planning features of LLM and passes action commands to the real robot. <strong>Morphology Selector</strong> Selector is used for action determination in specific sub-tasks, selecting the appropriate morphology for locomotion and manipulation based on grounded spatial knowledge and robot intrinsic features.
+            <strong>Overview of the Framework</strong>. (a) Intuitive Perceptor takes the RGB image and human instruction as input, extracting physical information of objects and constructs a structured task graph. (b) MemoGraph is responsible for storing knowledge related to the scene of the previous task as well as the actions taken by the robot in the face of different tasks. (c) Motion Library consists of various predefined motion primitives that allow the task planner to choose according to different scenes. When facing with New Scenario, the robot agent will distill the current scene graph and compared it with MemoGraph to select the suitable action.
           </p>
           
         </br>
@@ -416,10 +348,10 @@
     <p class="content has-text-justified">
         Prompts for the User Input:
         <br>
-        <a href="prompt/user_input.ini">User Interface</a> |
-        <a href="prompt/motion_library.ini">Motion Library</a> |
+        <a href="prompt/user_input.ini">coming soon</a> |
+        <!-- <a href="prompt/motion_library.ini">Motion Library</a> |
         <a href="prompt/basic_prompt.ini">Basic Prompts</a> |
-        <a href="prompt/Function_options.ini">Function Options</a> 
+        <a href="prompt/Function_options.ini">Function Options</a>  -->
     </p>
   </div>
   </div>
@@ -430,11 +362,7 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-      @inproceedings{wang2024hypermotion,
-        title={HYPERmotion: Learning Hybrid Behavior Planning for Autonomous Loco-manipulation},
-        author={Wang, Jin and Dai, Rui and Wang, Weijie and Rossini, Luca and Ruscelli, Francesco and Tsagarakis, Nikos},
-        booktitle={8th Annual Conference on Robot Learning}
-      }
+      coming soon...
     </code></pre>
   </div>
 </section>
